@@ -1,0 +1,28 @@
+<div class="menuItem">
+  <!-- Menu List -->
+  <div class="menu">
+    <h3>醫師姓氏</h3>
+    <ul>
+      <li *ngFor="let menuItem of processedMenuItems"
+          (click)="onSelectMenu(menuItem.menu)"
+          [class]="menuItem.menu == selectedMenu ? 'selected' :''">
+        {{ menuItem.menu }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Item List -->
+  <div class="item">
+    <h3>醫師</h3>
+    <ul>
+      <li *ngFor="let item of getItemsByMenu(selectedMenu)"
+          (click)="onSelectItem(item)"
+          [class]="item.code == selectedCode ? 'selected' :''">
+        {{ item.name }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<p>選擇的姓氏：{{ selectedMenu }}</p>
+<p>選擇的代碼：{{ selectedCode }}</p>

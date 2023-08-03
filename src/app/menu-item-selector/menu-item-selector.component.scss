@@ -1,0 +1,33 @@
+.menuItem {
+  display: flex;
+}
+
+.menu {
+  margin-right: 20px;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu li {
+  cursor: pointer;
+}
+
+.menu li.selected {
+  background-color: #afadad;
+}
+
+.item ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.item li {
+  cursor: pointer;
+}
+
+.item li.selected {
+  background-color: #afadad;
+}
