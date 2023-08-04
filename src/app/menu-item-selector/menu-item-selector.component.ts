@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CodeName, Menu, TitleCodeName } from './menu';
+import { CodeName, Menu } from './menu';
 
 @Component({
   selector: 'his-menu-item-selector',

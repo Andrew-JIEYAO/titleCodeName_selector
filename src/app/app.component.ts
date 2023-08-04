@@ -2,16 +2,18 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuItemSelectorComponent } from "./menu-item-selector/menu-item-selector.component";
 import { Menu } from './menu-item-selector/menu';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    imports: [CommonModule, MenuItemSelectorComponent]
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  imports: [CommonModule, MenuItemSelectorComponent, ButtonModule]
 })
 export class AppComponent {
   title = 'hisSelector';
+  visible: boolean = false;
 
   menu: Menu = {
     title: '醫生姓氏',
@@ -148,5 +150,9 @@ export class AppComponent {
         ]
       }
     ]
+  }
+
+  showDialog() {
+    this.visible = true;
   }
 }
