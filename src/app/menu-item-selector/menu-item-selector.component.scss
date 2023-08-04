@@ -15,10 +15,6 @@
   cursor: pointer;
 }
 
-.menu li.selected {
-  background-color: #afadad;
-}
-
 .item ul {
   list-style-type: none;
   padding: 0;
@@ -28,6 +24,10 @@
   cursor: pointer;
 }
 
-.item li.selected {
-  background-color: #afadad;
-}
+// .menu li.selected {
+//   background-color: #afadad;
+// }
+
+// .item li.selected {
+//   background-color: #afadad;
+// }

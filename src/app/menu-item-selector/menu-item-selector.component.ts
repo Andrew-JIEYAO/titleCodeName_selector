@@ -1,16 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuItem } from './menuitem.interface';
-
-// interface CodeName {
-//   code: string;
-//   name: string;
-// }
-
-// interface DataItem {
-//   title: string;
-//   codeName: CodeName[];
-// }
+import { CodeName, Menu, TitleCodeName } from './menu';
 
 @Component({
   selector: 'his-menu-item-selector',
@@ -21,27 +11,30 @@ import { MenuItem } from './menuitem.interface';
 })
 export class MenuItemSelectorComponent implements OnInit {
 
-  @Input() menuItems = {} as MenuItem[];
-  processedMenuItems = {} as MenuItem[];
-
-  selectedMenu?: string;
-  selectedCode?: string | null;
+  @Input() menu = {} as Menu;
+  // originTitleCodeNames = {} as TitleCodeName[];
+  title!: string;
+  subTitle!: string;
+  selectedTitle: string = '';
+  selectedCode?: string;
 
   ngOnInit(): void {
-    this.processedMenuItems = this.menuItems;
+    // this.originTitleCodeNames = this.menu.titleCodeNames.concat([]);
+    this.title = this.menu.title || 'Main';
+    this.subTitle = this.menu.subTitle || 'List';
   }
 
-  onSelectMenu(menu?: string) {
-    this.selectedMenu = menu;
-    this.selectedCode = null; // Reset the selected code when a new title is selected
+  onSelectTitle(title: string) {
+    this.selectedTitle = title;
+    this.selectedCode = '';
   }
 
-  onSelectItem(item?: any) {
-    this.selectedCode = item.code;
+  getCodeNamesByTitle(title: string): CodeName[] {
+    const codeName = this.menu.titleCodeNames.find(i => i.title === title) || this.menu.titleCodeNames[0];
+    return codeName ? codeName.codeNames : [];
   }
 
-  getItemsByMenu(menu?: string): any {
-    const menuItem = this.processedMenuItems.find(menuItem => menuItem.menu== menu) || this.processedMenuItems[0];
-    return menuItem ? menuItem.items : [];
+  onSelectCodeName(codeName: CodeName) {
+    this.selectedCode = codeName.code;
   }
 }
