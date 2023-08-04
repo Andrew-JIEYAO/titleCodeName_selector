@@ -4,12 +4,14 @@ import { MenuItemSelectorComponent } from "./menu-item-selector/menu-item-select
 import { Menu } from './menu-item-selector/menu';
 import { ButtonModule } from 'primeng/button';
 
+import { DialogModule } from 'primeng/dialog';
+
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [CommonModule, MenuItemSelectorComponent, ButtonModule]
+  imports: [CommonModule, MenuItemSelectorComponent, ButtonModule, DialogModule]
 })
 export class AppComponent {
   title = 'hisSelector';
