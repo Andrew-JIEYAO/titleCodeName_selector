@@ -1,7 +1,11 @@
 <div class="card flex justify-content-center">
-  <p-button icon="pi pi-external-link" label="Show" (click)="showDialog()"></p-button>
-  <p-dialog header="選取醫師" [(visible)]="visible" [style]="{width: '50vw'}">
-    <his-menu-item-selector [menu]="menu"></his-menu-item-selector>
+  <p-button icon="pi pi-external-link" label="Show" (click)="showDialog1()"></p-button>
+  <p-dialog header="選取醫師" [(visible)]="visible1" [style]="{width: '50vw'}">
+    <his-menu-item-selector [menu]="menu1"></his-menu-item-selector>
+  </p-dialog>
+  <p-button icon="pi pi-external-link" label="Show" (click)="showDialog2()"></p-button>
+  <p-dialog header="選取醫師" [(visible)]="visible2" [style]="{width: '50vw'}">
+    <his-menu-item-selector [menu]="menu2"></his-menu-item-selector>
   </p-dialog>
 </div>
 

@@ -2,10 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CodeName, Menu } from './menu';
 
+import { CardModule } from 'primeng/card';
+import { SplitterModule } from 'primeng/splitter';
+
 @Component({
   selector: 'his-menu-item-selector',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CardModule, SplitterModule],
   templateUrl: './menu-item-selector.component.html',
   styleUrls: ['./menu-item-selector.component.scss']
 })
