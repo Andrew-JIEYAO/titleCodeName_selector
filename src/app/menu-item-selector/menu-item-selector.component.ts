@@ -1,31 +1,25 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CodeName, Menu } from './menu';
-
 import { CardModule } from 'primeng/card';
 import { SplitterModule } from 'primeng/splitter';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'his-menu-item-selector',
   standalone: true,
-  imports: [CommonModule, CardModule, SplitterModule],
+  imports: [CommonModule, CardModule, SplitterModule, ButtonModule],
   templateUrl: './menu-item-selector.component.html',
   styleUrls: ['./menu-item-selector.component.scss']
 })
-export class MenuItemSelectorComponent implements OnInit {
+export class MenuItemSelectorComponent {
 
   @Input() menu = {} as Menu;
-  // originTitleCodeNames = {} as TitleCodeName[];
-  title!: string;
-  subTitle!: string;
+  @Output() hide = new EventEmitter<void>();
+  @Output() confirm = new EventEmitter<string>();
+
   selectedTitle: string = '';
   selectedCode?: string;
-
-  ngOnInit(): void {
-    // this.originTitleCodeNames = this.menu.titleCodeNames.concat([]);
-    this.title = this.menu.title || 'Main';
-    this.subTitle = this.menu.subTitle || 'List';
-  }
 
   onSelectTitle(title: string) {
     this.selectedTitle = title;
@@ -39,5 +33,25 @@ export class MenuItemSelectorComponent implements OnInit {
 
   onSelectCodeName(codeName: CodeName) {
     this.selectedCode = codeName.code;
+  }
+
+  doConfirm() {
+    const code = this.selectedCode;
+    this.confirm.emit(code);
+    this.doHide();
+  }
+
+  doCancelClick() {
+    this.#cleanTitleCodeName();
+    this.doHide();
+  }
+
+  doHide() {
+    this.hide.emit();
+  }
+
+  #cleanTitleCodeName() {
+    this.selectedTitle = '';
+    this.selectedCode = undefined;
   }
 }

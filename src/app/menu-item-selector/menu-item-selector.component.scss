@@ -1,37 +1,3 @@
-// .menuItem {
-//   display: flex;
-// }
-
-// .menu {
-//   margin-right: 20px;
-// }
-
-// .menu ul {
-//   list-style-type: none;
-//   padding: 0;
-// }
-
-// .menu li {
-//   cursor: pointer;
-// }
-
-// .item ul {
-//   list-style-type: none;
-//   padding: 0;
-// }
-
-// .item li {
-//   cursor: pointer;
-// }
-
-// .menu li.selected {
-//   background-color: #afadad;
-// }
-
-// .item li.selected {
-//   background-color: #afadad;
-// }
-
 ul,
 li {
   margin: 0%;
@@ -54,4 +20,11 @@ li {
   margin-bottom: 10px;
   // flex: auto;
   cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  padding: var(--spacing-md, 12px);
+  justify-content: flex-end;
+  align-self: stretch;
 }

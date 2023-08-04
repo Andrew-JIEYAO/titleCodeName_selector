@@ -1,17 +1,8 @@
 <div>
   <p-splitter styleClass="mb-5">
     <ng-template pTemplate>
-      <!-- Menu List -->
-      <!-- <p-card header="{{ title }}">
-        <ul>
-          <li *ngFor="let titleCodeName of menu.titleCodeNames" (click)="onSelectTitle(titleCodeName.title)"
-            [style.background-color]="selectedTitle === titleCodeName.title ? '#f0f0f0' : 'transparent'">
-            {{ titleCodeName.title }}
-          </li>
-        </ul>
-      </p-card> -->
       <div class="menu">
-        <h3>{{ title }}</h3>
+        <h3>{{ menu.title }}</h3>
         <ul>
           <li *ngFor="let titleCodeName of menu.titleCodeNames" (click)="onSelectTitle(titleCodeName.title)"
             [style.background-color]="selectedTitle === titleCodeName.title ? '#FDD3A4' : 'transparent'">
@@ -22,9 +13,8 @@
     </ng-template>
 
     <ng-template pTemplate>
-      <!-- Item List -->
       <div class="item">
-        <h3>{{ subTitle }}</h3>
+        <h3>{{ menu.subTitle }}</h3>
         <ul>
           <li *ngFor="let codeName of getCodeNamesByTitle(selectedTitle)" (click)="onSelectCodeName(codeName)"
             [style.background-color]="selectedCode === codeName.code ? '#FDD3A4' : 'transparent'">
@@ -35,7 +25,9 @@
     </ng-template>
   </p-splitter>
 
-  <p>選擇的姓氏：{{ selectedTitle }}</p>
-  <p>選擇的代碼：{{ selectedCode }}</p>
+  <div class="footer">
+    <p-button label="取消" styleClass="p-button-outlined p-button-secondary" (onClick)="doCancelClick()"></p-button>
+    <p-button label="確定" styleClass="p-button-raised p-button-success" (onClick)="doConfirm()"></p-button>
+  </div>
 
 </div>
